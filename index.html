@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Interaction Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Social Media Analytics Dashboard</h1>
+        <p>Analyze your social media engagement and performance</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Overview Cards -->
+        <section class="overview-section">
+            <h2>Dashboard Overview</h2>
+            <div class="cards-row">
+                <div class="card">
+                    <h3>Total Posts</h3>
+                    <p id="totalPosts">0</p>
+                </div>
+                <div class="card">
+                    <h3>Avg Likes</h3>
+                    <p id="avgLikes">0</p>
+                </div>
+                <div class="card">
+                    <h3>Avg Comments</h3>
+                    <p id="avgComments">0</p>
+                </div>
+                <div class="card">
+                    <h3>Avg Shares</h3>
+                    <p id="avgShares">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="filter-section">
+            <h2>Filters</h2>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="postTypeFilter">Post Type:</label>
+                    <select id="postTypeFilter">
+                        <option value="all">All</option>
+                        <option value="image">Image</option>
+                        <option value="video">Video</option>
+                        <option value="text">Text</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="postTimeFilter">Post Time:</label>
+                    <select id="postTimeFilter">
+                        <option value="all">All</option>
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
+                        <option value="night">Night</option>
+                    </select>
+                </div>
+                <button id="applyFilter" onclick="applyFilters()">Apply Filters</button>
+                <button id="resetFilter" onclick="resetFilters()">Reset</button>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <h2>Charts & Visualizations</h2>
+            <div class="charts-grid">
+                <div class="chart-box">
+                    <h3>Post Type vs Average Likes</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Likes vs Comments (Scatter)</h3>
+                    <canvas id="scatterChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Engagement Trends</h3>
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Post Distribution</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Insights -->
+        <section class="analytics-section">
+            <h2>Basic Analytics & Insights</h2>
+            <div class="insights-box">
+                <ul id="insightsList">
+                    <!-- Insights will be added by JS -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Prediction Section -->
+        <section class="prediction-section">
+            <h2>Predict Likes</h2>
+            <p class="prediction-info">Enter the number of comments and followers to predict likes using a simple formula.</p>
+            <div class="prediction-form">
+                <div class="input-group">
+                    <label for="inputComments">Comments:</label>
+                    <input type="number" id="inputComments" placeholder="e.g. 50" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="inputFollowers">Followers:</label>
+                    <input type="number" id="inputFollowers" placeholder="e.g. 5000" min="0">
+                </div>
+                <button onclick="predictLikes()">Predict</button>
+            </div>
+            <div class="prediction-result" id="predictionResult">
+                <!-- Result shows here -->
+            </div>
+        </section>
+
+        <!-- Data Table Preview -->
+        <section class="table-section">
+            <h2>Dataset Preview (First 20 entries)</h2>
+            <div class="table-wrapper">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Post ID</th>
+                            <th>Type</th>
+                            <th>Likes</th>
+                            <th>Comments</th>
+                            <th>Shares</th>
+                            <th>Followers</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows added by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Social Media Analytics Dashboard &copy; 2025 | Student Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
